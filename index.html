@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 CO-SHOW | 첨단소재·나노융합 혁신융합대학사업단 안내</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Noto Sans KR & Pretendard CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', 'Noto Sans KR', 'sans-serif'],
+          },
+          colors: {
+            coshow: {
+              navy: '#0B2447',
+              deep: '#19376D',
+              blue: '#1D70B8',
+              sky: '#00A8E8',
+              ice: '#F0F6FC',
+              gold: '#FFD166',
+              goldDark: '#D97706',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+      background-color: #F4F8FC;
+      color: #0F172A;
+    }
+    /* Custom subtle grid pattern for Hero */
+    .tech-grid {
+      background-image: radial-gradient(rgba(0, 168, 232, 0.18) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    /* Hide scrollbar for horizontal nav */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    /* SVG Booth interactive styles */
+    .booth-node {
+      cursor: pointer;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+    .booth-node:hover circle {
+      filter: brightness(1.15);
+    }
+    .booth-node.active circle {
+      fill: #0B2447 !important;
+      stroke: #FFD166 !important;
+      stroke-width: 3px !important;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-coshow-sky selection:text-white">
+
+  <!-- Toast Message Box (Replaces alert) -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden items-center gap-2.5 bg-coshow-navy text-white px-5 py-3 rounded-full shadow-2xl border border-coshow-sky/40 text-sm font-medium transition-all duration-300">
+    <i class="fa-solid fa-circle-check text-coshow-gold"></i>
+    <span id="toast-msg">안내 페이지 링크가 클립보드에 복사되었습니다.</span>
+  </div>
+
+  <!-- Top Sticky Navigation -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="flex items-center justify-between h-14">
+        <div class="flex items-center gap-2">
+          <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-coshow-navy text-white font-extrabold text-xs tracking-tighter">CO</span>
+          <span class="font-bold text-coshow-navy text-sm sm:text-base tracking-tight">2026 CO-SHOW 행사 안내</span>
+        </div>
+        <button onclick="copyPageLink()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-coshow-ice hover:bg-blue-100 text-coshow-blue text-xs font-semibold transition">
+          <i class="fa-solid fa-share-nodes"></i>
+          <span>링크 공유</span>
+        </button>
+      </div>
+      <!-- Section Anchor Tabs -->
+      <nav class="flex items-center gap-1 overflow-x-auto no-scrollbar pb-2 text-xs sm:text-sm font-semibold">
+        <a href="#invitation" class="px-3 py-1.5 rounded-full bg-coshow-navy text-white whitespace-nowrap transition">행사 개요</a>
+        <a href="#schedule" class="px-3 py-1.5 rounded-full text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">주요 일정표</a>
+        <a href="#floorplan" class="px-3 py-1.5 rounded-full text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">부스 배치도 · 15선</a>
+        <a href="#programs" class="px-3 py-1.5 rounded-full text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">체험 프로그램</a>
+        <a href="#venue" class="px-3 py-1.5 rounded-full text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">오시는 길</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Container (Mobile-First Centered App Shell) -->
+  <main class="max-w-3xl mx-auto px-4 pt-5 pb-16 space-y-8">
+
+    <!-- 1. HERO & OVERVIEW SECTION -->
+    <section id="invitation" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-coshow-navy via-[#123363] to-coshow-blue text-white shadow-xl">
+      <div class="tech-grid absolute inset-0 opacity-60 pointer-events-none"></div>
+      <!-- Decorative glowing orbs matching key visual -->
+      <div class="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-coshow-sky/25 blur-2xl pointer-events-none"></div>
+      <div class="absolute -bottom-20 -left-16 w-56 h-56 rounded-full bg-blue-400/20 blur-2xl pointer-events-none"></div>
+
+      <div class="relative p-6 sm:p-8 space-y-6">
+        <!-- Consortium Badge -->
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 text-xs font-bold tracking-wider text-coshow-gold">
+            2026 CO-SHOW PROGRAM GUIDE
+          </span>
+          <span class="text-xs sm:text-sm text-blue-100 font-medium">
+            첨단소재·나노융합 혁신융합대학사업단
+          </span>
+        </div>
+
+        <!-- Main Title (Updated to clean, concise announcement) -->
+        <div class="space-y-2">
+          <p class="text-coshow-sky font-bold text-sm sm:text-base tracking-wide">
+            지역전략산업 현안 해결형 CO-SHOW 경진대회 · 체험관
+          </p>
+          <h1 class="text-2xl sm:text-3xl font-extrabold leading-snug tracking-tight">
+            2026 CO-SHOW 경진대회 및<br class="hidden sm:inline" />
+            전시·체험 프로그램 일정을 안내해 드립니다.
+          </h1>
+          <p class="text-xs sm:text-sm text-blue-100/90 tracking-widest uppercase pt-1">
+            MATERIALS · NANO &amp; MANUFACTURING INNOVATION UNIVERSITY CONSORTIUM
+          </p>
+        </div>
+
+        <!-- Core Event Summary Box -->
+        <div class="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-4 sm:p-5 space-y-3 text-sm">
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-lg bg-coshow-sky/30 flex items-center justify-center shrink-0 mt-0.5 text-coshow-gold">
+              <i class="fa-regular fa-calendar-check"></i>
+            </span>
+            <div>
+              <p class="text-blue-200 text-xs font-semibold">전체 부스 운영 일정</p>
+              <p class="font-bold text-white">2026. 11. 18.(수) ~ 11. 21.(토) 10:00 ~ 18:00 <span class="text-xs font-normal text-blue-200">(토요일 17:00 마감)</span></p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-lg bg-coshow-gold/25 flex items-center justify-center shrink-0 mt-0.5 text-coshow-gold">
+              <i class="fa-solid fa-trophy"></i>
+            </span>
+            <div>
+              <p class="text-coshow-gold text-xs font-semibold">경진대회 본선 및 시상식</p>
+              <p class="font-bold text-white">2026. 11. 20.(금) [본선] 09:30~13:00 / [시상식] 15:00~17:00</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-lg bg-coshow-sky/30 flex items-center justify-center shrink-0 mt-0.5 text-coshow-gold">
+              <i class="fa-solid fa-location-dot"></i>
+            </span>
+            <div>
+              <p class="text-blue-200 text-xs font-semibold">행사 장소</p>
+              <p class="font-bold text-white">광주 김대중컨벤션센터 (첨단소재·나노융합 체험관 및 경진대회 존)</p>
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-white/15 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div>
+              <span class="text-blue-200 block mb-0.5">주관 및 참여대학</span>
+              <span class="font-medium text-white">중앙대학교(주관), 강원대학교, 국립금오공과대학교, 한남대학교, 인하공업전문대학 외 12개 대학</span>
+            </div>
+            <div>
+              <span class="text-blue-200 block mb-0.5">주요 시상 내역</span>
+              <span class="font-medium text-white">교육부장관상, 한국연구재단이사장상, 전남광주통합특별시장상, COSS협의회장상, 사업단장상</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Concise Overview Card -->
+        <div class="rounded-2xl bg-white text-slate-800 p-5 sm:p-6 shadow-md space-y-2.5">
+          <div class="flex items-center gap-2 text-coshow-navy font-bold text-base">
+            <i class="fa-solid fa-circle-info text-coshow-blue"></i>
+            <span>행사 운영 안내</span>
+          </div>
+          <p class="text-sm leading-relaxed text-slate-600">
+            첨단소재·나노융합 혁신융합대학사업단에서는 지역전략산업의 현안을 해결하기 위해 대학생들이 직접 설계·제작한 <strong>적층제조 융합설계 시제품 15선 전시</strong>와 <strong>4대 참여형 체험 프로그램</strong>을 운영합니다. 아래 일자별 세부 타임테이블과 전시장 부스 배치도를 확인해 주시기 바랍니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. INTERACTIVE SCHEDULE SECTION -->
+    <section id="schedule" class="rounded-3xl bg-white p-5 sm:p-7 shadow-sm border border-slate-200/80 space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold text-coshow-blue uppercase tracking-wider">TIMETABLE</span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-coshow-navy">일자별 주요 일정표</h2>
+        </div>
+
+        <!-- Official / Key Session Highlight Toggle -->
+        <label class="inline-flex items-center gap-2.5 cursor-pointer bg-amber-50 border border-amber-200 px-3.5 py-2 rounded-2xl self-start sm:self-auto">
+          <input type="checkbox" id="vipOnlyToggle" class="w-4 h-4 accent-amber-500 rounded cursor-pointer" onchange="renderSchedule()" />
+          <span class="text-xs font-bold text-amber-900">
+            <i class="fa-solid fa-star text-amber-500 mr-1"></i>주요 공식 일정만 보기
+          </span>
+        </label>
+      </div>
+
+      <!-- Day Filter Tabs -->
+      <div class="grid grid-cols-5 gap-1.5 bg-coshow-ice p-1.5 rounded-2xl text-xs sm:text-sm font-bold">
+        <button onclick="setDayFilter('all')" id="tab-all" class="day-tab py-2 rounded-xl bg-coshow-navy text-white shadow-sm transition">전체</button>
+        <button onclick="setDayFilter('1118')" id="tab-1118" class="day-tab py-2 rounded-xl text-slate-600 hover:text-coshow-navy transition">11/18(수)</button>
+        <button onclick="setDayFilter('1119')" id="tab-1119" class="day-tab py-2 rounded-xl text-slate-600 hover:text-coshow-navy transition">11/19(목)</button>
+        <button onclick="setDayFilter('1120')" id="tab-1120" class="day-tab py-2 rounded-xl text-slate-600 hover:text-coshow-navy transition">11/20(금)</button>
+        <button onclick="setDayFilter('1121')" id="tab-1121" class="day-tab py-2 rounded-xl text-slate-600 hover:text-coshow-navy transition">11/21(토)</button>
+      </div>
+
+      <!-- Schedule Content Container -->
+      <div id="schedule-list" class="space-y-4">
+        <!-- Populated dynamically by JS -->
+      </div>
+    </section>
+
+    <!-- 3. INTERACTIVE BOOTH FLOOR PLAN & 15 FINALIST TEAMS -->
+    <section id="floorplan" class="rounded-3xl bg-white p-5 sm:p-7 shadow-sm border border-slate-200/80 space-y-6">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-coshow-blue uppercase tracking-wider">EXHIBITION MAP &amp; FINALISTS</span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-coshow-navy">부스 배치도 및 본선 진출작 15선</h2>
+        <p class="text-xs sm:text-sm text-slate-500">배치도의 <strong>부스 번호(1~15)</strong> 또는 아래 팀 목록을 클릭하면 작품 상세 설명을 확인하실 수 있습니다.</p>
+      </div>
+
+      <!-- Interactive SVG Floor Plan matching 맵.jpg -->
+      <div class="rounded-2xl bg-coshow-ice border border-blue-100 p-3 sm:p-5">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3 text-xs">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex items-center gap-1.5 font-semibold text-slate-700">
+              <span class="w-3 h-3 rounded-full bg-[#DC2626] inline-block"></span> 경진대회 전시 부스 (1~15번)
+            </span>
+            <span class="inline-flex items-center gap-1.5 font-semibold text-slate-700">
+              <span class="w-3 h-3 rounded-sm bg-coshow-navy inline-block"></span> 중앙 체험프로그램 존
+            </span>
+          </div>
+          <span class="text-coshow-blue font-semibold"><i class="fa-solid fa-hand-pointer mr-1"></i>번호 터치 시 상세조회</span>
+        </div>
+
+        <div class="w-full overflow-x-auto">
+          <svg id="booth-svg" viewBox="0 0 640 540" class="w-full h-auto max-w-[600px] mx-auto select-none">
+            <!-- Outer Hall Frame -->
+            <rect x="135" y="25" width="370" height="465" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" />
+            <!-- Top Angled Wall -->
+            <path d="M135 85 L250 25 L390 25 L505 85" fill="none" stroke="#94A3B8" stroke-width="4" stroke-linecap="round" />
+            <!-- Left & Right Wall Strips -->
+            <rect x="138" y="85" width="26" height="360" fill="#1E293B" rx="4" />
+            <rect x="476" y="85" width="26" height="360" fill="#1E293B" rx="4" />
+
+            <!-- Flow Arrows (Subtle Tech Lines) -->
+            <path d="M295 465 L295 415 L205 350 L205 95 L320 65 L435 95 L435 350 L345 415 L345 465" fill="none" stroke="#38BDF8" stroke-width="2" stroke-dasharray="5 5" opacity="0.7" />
+
+            <!-- Center Zone 1: Upper U-Shape Experience Tables -->
+            <g>
+              <path d="M275 110 L275 215 L365 215 L365 110" fill="none" stroke="#0B2447" stroke-width="22" stroke-linejoin="round" stroke-linecap="round" />
+              <rect x="288" y="122" width="64" height="74" rx="8" fill="#F0F6FC" />
+              <text x="320" y="154" text-anchor="middle" fill="#0B2447" font-size="11" font-weight="800">체험 존 A</text>
+              <text x="320" y="170" text-anchor="middle" fill="#1D70B8" font-size="9.5" font-weight="600">아트월·키캡</text>
+            </g>
+
+            <!-- Center Zone 2: Lower Inverted-U Experience Tables -->
+            <g>
+              <path d="M275 375 L275 270 L365 270 L365 375" fill="none" stroke="#0B2447" stroke-width="22" stroke-linejoin="round" stroke-linecap="round" />
+              <rect x="288" y="290" width="64" height="74" rx="8" fill="#F0F6FC" />
+              <text x="320" y="322" text-anchor="middle" fill="#0B2447" font-size="11" font-weight="800">체험 존 B</text>
+              <text x="320" y="338" text-anchor="middle" fill="#1D70B8" font-size="9.5" font-weight="600">3D펜·피규어</text>
+            </g>
+
+            <!-- Bottom Entrance: START -->
+            <g>
+              <rect x="255" y="468" width="130" height="34" rx="8" fill="#1D70B8" />
+              <text x="320" y="484" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">START</text>
+              <text x="320" y="496" text-anchor="middle" fill="#DBEAFE" font-size="8.5" font-weight="600">첨단소재·나노융합 체험관</text>
+              <!-- Info Desk -->
+              <rect x="145" y="458" width="85" height="22" rx="4" fill="#E2E8F0" stroke="#94A3B8" />
+              <text x="187" y="473" text-anchor="middle" fill="#334155" font-size="9.5" font-weight="700">안내 데스크</text>
+            </g>
+
+            <!-- Left Wall Booths (1 to 7 from bottom to top) -->
+            <!-- 1: ANSIM -->
+            <g class="booth-node" data-id="1" onclick="selectTeam(1)">
+              <text x="102" y="419" text-anchor="end" fill="#1E293B" font-size="12" font-weight="700">ANSIM</text>
+              <circle cx="122" cy="415" r="14" fill="#DC2626" />
+              <text x="122" y="419" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">1</text>
+            </g>
+            <!-- 2: Vanguard -->
+            <g class="booth-node" data-id="2" onclick="selectTeam(2)">
+              <text x="102" y="367" text-anchor="end" fill="#1E293B" font-size="12" font-weight="700">Vanguard</text>
+              <circle cx="122" cy="363" r="14" fill="#DC2626" />
+              <text x="122" y="367" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">2</text>
+            </g>
+            <!-- 3: Rainmate -->
+            <g class="booth-node" data-id="3" onclick="selectTeam(3)">
+              <text x="102" y="315" text-anchor="end" fill="#1E293B" font-size="12" font-weight="700">Rainmate</text>
+              <circle cx="122" cy="311" r="14" fill="#DC2626" />
+              <text x="122" y="315" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">3</text>
+            </g>
+            <!-- 4: 스파크 -->
+            <g class="booth-node" data-id="4" onclick="selectTeam(4)">
+              <text x="102" y="263" text-anchor="end" fill="#1E293B" font-size="12" font-weight="700">스파크</text>
+              <circle cx="122" cy="259" r="14" fill="#DC2626" />
+              <text x="122" y="263" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">4</text>
+            </g>
+            <!-- 5: 뽀송뽀송 -->
+            <g class="booth-node" data-id="5" onclick="selectTeam(5)">
+              <text x="102" y="211" text-anchor="end" fill="#1E293B" font-size="12" font-weight="700">뽀송뽀송</text>
+              <circle cx="122" cy="207" r="14" fill="#DC2626" />
+              <text x="122" y="211" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">5</text>
+            </g>
+            <!-- 6: RAIN:ON -->
+            <g class="booth-node" data-id="6" onclick="selectTeam(6)">
+              <text x="102" y="159" text-anchor="end" fill="#1E293B" font-size="12" font-weight="700">RAIN:ON</text>
+              <circle cx="122" cy="155" r="14" fill="#DC2626" />
+              <text x="122" y="159" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">6</text>
+            </g>
+            <!-- 7: ownway -->
+            <g class="booth-node" data-id="7" onclick="selectTeam(7)">
+              <text x="102" y="107" text-anchor="end" fill="#1E293B" font-size="12" font-weight="700">ownway</text>
+              <circle cx="122" cy="103" r="14" fill="#DC2626" />
+              <text x="122" y="107" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">7</text>
+            </g>
+
+            <!-- Right Wall Booths (8 to 15 from top to bottom) -->
+            <!-- 8: 커피박의 대반전 -->
+            <g class="booth-node" data-id="8" onclick="selectTeam(8)">
+              <circle cx="518" cy="103" r="14" fill="#DC2626" />
+              <text x="518" y="107" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">8</text>
+              <text x="538" y="107" text-anchor="start" fill="#1E293B" font-size="12" font-weight="700">커피박의 대반전</text>
+            </g>
+            <!-- 9: 리마인두 -->
+            <g class="booth-node" data-id="9" onclick="selectTeam(9)">
+              <circle cx="518" cy="148" r="14" fill="#DC2626" />
+              <text x="518" y="152" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">9</text>
+              <text x="538" y="152" text-anchor="start" fill="#1E293B" font-size="12" font-weight="700">리마인두</text>
+            </g>
+            <!-- 10: Na-ture -->
+            <g class="booth-node" data-id="10" onclick="selectTeam(10)">
+              <circle cx="518" cy="193" r="14" fill="#DC2626" />
+              <text x="518" y="197" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">10</text>
+              <text x="538" y="197" text-anchor="start" fill="#1E293B" font-size="12" font-weight="700">Na-ture</text>
+            </g>
+            <!-- 11: 홀맨 -->
+            <g class="booth-node" data-id="11" onclick="selectTeam(11)">
+              <circle cx="518" cy="238" r="14" fill="#DC2626" />
+              <text x="518" y="242" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">11</text>
+              <text x="538" y="242" text-anchor="start" fill="#1E293B" font-size="12" font-weight="700">홀맨</text>
+            </g>
+            <!-- 12: 홀인원 -->
+            <g class="booth-node" data-id="12" onclick="selectTeam(12)">
+              <circle cx="518" cy="283" r="14" fill="#DC2626" />
+              <text x="518" y="287" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">12</text>
+              <text x="538" y="287" text-anchor="start" fill="#1E293B" font-size="12" font-weight="700">홀인원</text>
+            </g>
+            <!-- 13: ResQ4U -->
+            <g class="booth-node" data-id="13" onclick="selectTeam(13)">
+              <circle cx="518" cy="328" r="14" fill="#DC2626" />
+              <text x="518" y="332" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">13</text>
+              <text x="538" y="332" text-anchor="start" fill="#1E293B" font-size="12" font-weight="700">ResQ4U</text>
+            </g>
+            <!-- 14: seeme -->
+            <g class="booth-node" data-id="14" onclick="selectTeam(14)">
+              <circle cx="518" cy="373" r="14" fill="#DC2626" />
+              <text x="518" y="377" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">14</text>
+              <text x="538" y="377" text-anchor="start" fill="#1E293B" font-size="12" font-weight="700">seeme</text>
+            </g>
+            <!-- 15: 땅땅땅 -->
+            <g class="booth-node" data-id="15" onclick="selectTeam(15)">
+              <circle cx="518" cy="418" r="14" fill="#DC2626" />
+              <text x="518" y="422" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">15</text>
+              <text x="538" y="422" text-anchor="start" fill="#1E293B" font-size="12" font-weight="700">땅땅땅</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Selected Team Detail Card -->
+      <div id="team-detail-card" class="rounded-2xl bg-gradient-to-r from-coshow-navy to-coshow-deep text-white p-5 sm:p-6 shadow-md transition-all">
+        <!-- Populated dynamically when a booth is clicked -->
+      </div>
+
+      <!-- Search & Theme Filter for 15 Teams -->
+      <div class="space-y-3 pt-2">
+        <div class="flex flex-col sm:flex-row gap-2">
+          <div class="relative flex-1">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="team-search" oninput="renderTeamList()" placeholder="팀명, 대학명, 키워드 검색 (예: 중앙대, 우산, 커피박)" class="w-full pl-9 pr-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm focus:outline-none focus:border-coshow-blue" />
+          </div>
+          <select id="theme-filter" onchange="renderTeamList()" class="px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm font-semibold text-slate-700 focus:outline-none focus:border-coshow-blue">
+            <option value="all">전체 주제 (15팀)</option>
+            <option value="빗속 이동 안전">빗속 이동 사용자 안전</option>
+            <option value="커피 업사이클링">커피 업사이클링</option>
+            <option value="스마트 방재·안전">스마트 방재·안전</option>
+            <option value="스마트 리빙·농업">스마트 리빙·농업</option>
+          </select>
+        </div>
+
+        <!-- Compact Grid of 15 Teams -->
+        <div id="team-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. EXPERIENCE PROGRAMS & TRACKS SHOWCASE -->
+    <section id="programs" class="rounded-3xl bg-white p-5 sm:p-7 shadow-sm border border-slate-200/80 space-y-6">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-coshow-blue uppercase tracking-wider">EXPERIENCE &amp; EDUCATION</span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-coshow-navy">4대 체험 프로그램 &amp; 핵심 교육 분야</h2>
+        <p class="text-xs sm:text-sm text-slate-500">행사 기간 중 상시 운영되는 참여형 첨단소재·적층제조 체험 존입니다.</p>
+      </div>
+
+      <!-- 4 Experience Program Cards (2x2 Grid) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Card 1: 아트월 브릭월 -->
+        <div class="rounded-2xl bg-coshow-ice/70 border border-blue-100 p-5 hover:shadow-md transition space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="w-10 h-10 rounded-xl bg-coshow-navy text-white flex items-center justify-center text-lg">
+              <i class="fa-solid fa-cubes"></i>
+            </span>
+            <span class="px-2.5 py-1 rounded-full bg-white text-coshow-blue text-xs font-bold border border-blue-100">협동 조립 프로젝트</span>
+          </div>
+          <h3 class="text-lg font-extrabold text-coshow-navy">아트월 브릭월</h3>
+          <p class="text-xs font-bold text-coshow-blue">“작은 조각으로 함께 만드는 미래 도시 프로젝트”</p>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            방문객과 참여자들이 한 조각씩 브릭을 연결하여 첨단소재·나노융합이 그려낼 미래 도시의 모습을 함께 완성하는 참여형 아트월입니다.
+          </p>
+        </div>
+
+        <!-- Card 2: 아트월 3D 드로잉 -->
+        <div class="rounded-2xl bg-coshow-ice/70 border border-blue-100 p-5 hover:shadow-md transition space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="w-10 h-10 rounded-xl bg-coshow-blue text-white flex items-center justify-center text-lg">
+              <i class="fa-solid fa-pen-nib"></i>
+            </span>
+            <span class="px-2.5 py-1 rounded-full bg-white text-coshow-blue text-xs font-bold border border-blue-100">3D펜 입체 드로잉</span>
+          </div>
+          <h3 class="text-lg font-extrabold text-coshow-navy">아트월 3D 드로잉</h3>
+          <p class="text-xs font-bold text-coshow-blue">“상상을 입체로, 미래 도시를 손으로 그려보기”</p>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            적층제조의 원리를 직관적으로 경험할 수 있는 3D펜을 활용하여 나만의 구조물과 미래 도시 오브제를 입체적으로 제작합니다.
+          </p>
+        </div>
+
+        <!-- Card 3: 키캡랩 -->
+        <div class="rounded-2xl bg-coshow-ice/70 border border-blue-100 p-5 hover:shadow-md transition space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="w-10 h-10 rounded-xl bg-coshow-sky text-white flex items-center justify-center text-lg">
+              <i class="fa-regular fa-keyboard"></i>
+            </span>
+            <span class="px-2.5 py-1 rounded-full bg-white text-coshow-blue text-xs font-bold border border-blue-100">커스텀 키캡 공방</span>
+          </div>
+          <h3 class="text-lg font-extrabold text-coshow-navy">키캡랩 (Keycap Lab)</h3>
+          <p class="text-xs font-bold text-coshow-blue">“미래기술을 담은 세상 하나뿐인 나만의 키캡 제작”</p>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            첨단소재 디자인 모티브를 적용한 커스텀 키캡을 직접 조립·제작하여 실생활 소품으로 소장할 수 있는 인기 공방 프로그램입니다.
+          </p>
+        </div>
+
+        <!-- Card 4: 피규어랩 -->
+        <div class="rounded-2xl bg-coshow-ice/70 border border-blue-100 p-5 hover:shadow-md transition space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-lg">
+              <i class="fa-solid fa-robot"></i>
+            </span>
+            <span class="px-2.5 py-1 rounded-full bg-white text-coshow-blue text-xs font-bold border border-blue-100">나만의 토이콘 만들기</span>
+          </div>
+          <h3 class="text-lg font-extrabold text-coshow-navy">피규어랩 (Figure Lab)</h3>
+          <p class="text-xs font-bold text-coshow-blue">“3D 펜으로 만드는 나의 꿈, 나의 미래 직업”</p>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            로켓, 로봇, 미래 모빌리티 등 다양한 도안을 바탕으로 3D펜을 이용해 나만의 캐릭터 토이콘 피규어를 완성합니다.
+          </p>
+        </div>
+      </div>
+
+      <!-- 3 Core Tracks Banner -->
+      <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4 sm:p-5 space-y-3">
+        <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">첨단소재·나노융합 혁신융합대학 3대 핵심 트랙</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm">
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200/80">
+            <span class="font-extrabold text-coshow-navy block mb-1">01. 첨단신소재</span>
+            <span class="text-slate-600 text-xs">차세대 소재의 설계·제조·응용</span>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200/80">
+            <span class="font-extrabold text-coshow-blue block mb-1">02. 나노융합</span>
+            <span class="text-slate-600 text-xs">나노기술 기반 미래 소재 및 공정 개발</span>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200/80">
+            <span class="font-extrabold text-coshow-sky block mb-1">03. 적층제조</span>
+            <span class="text-slate-600 text-xs">3D 프린팅 기반 설계 및 제조 기술</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FOOTER / VENUE & GUIDE -->
+    <footer id="venue" class="rounded-3xl bg-coshow-navy text-white p-6 sm:p-8 shadow-lg space-y-6">
+      <div class="space-y-2">
+        <span class="inline-block px-3 py-1 rounded-full bg-coshow-gold/20 text-coshow-gold text-xs font-bold">
+          <i class="fa-solid fa-id-badge mr-1"></i>컨소시엄 관계자 및 방문객 현장 안내
+        </span>
+        <h2 class="text-xl font-extrabold">오시는 길 및 현장 등록 안내</h2>
+        <p class="text-xs sm:text-sm text-blue-100 leading-relaxed">
+          컨소시엄 관계자께서는 전시장 도착 시 <strong>첨단소재·나노융합 부스 입구 안내 데스크</strong>에서 비표 수령 및 현장 안내를 받으실 수 있습니다.
+        </p>
+      </div>
+
+      <div class="rounded-2xl bg-white/10 border border-white/15 p-4 space-y-2 text-xs sm:text-sm">
+        <div class="flex items-center justify-between gap-2">
+          <div>
+            <p class="text-blue-200 text-xs">행사장 주소</p>
+            <p class="font-bold text-white">광주 김대중컨벤션센터 (광주광역시 서구 상무누리로 30)</p>
+          </div>
+          <a href="https://map.kakao.com/link/search/김대중컨벤션센터" target="_blank" rel="noopener noreferrer" class="shrink-0 px-3 py-2 rounded-xl bg-coshow-sky hover:bg-sky-400 text-coshow-navy font-bold text-xs transition">
+            지도 보기 <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Participating Universities -->
+      <div class="pt-4 border-t border-white/15 space-y-3">
+        <p class="text-xs text-blue-200 font-medium">첨단소재·나노융합 혁신융합대학사업단 컨소시엄</p>
+        <div class="flex flex-wrap gap-2 text-xs font-semibold">
+          <span class="px-3 py-1.5 rounded-lg bg-white/10">중앙대학교 (주관)</span>
+          <span class="px-3 py-1.5 rounded-lg bg-white/10">강원대학교</span>
+          <span class="px-3 py-1.5 rounded-lg bg-white/10">국립금오공과대학교</span>
+          <span class="px-3 py-1.5 rounded-lg bg-white/10">한남대학교</span>
+          <span class="px-3 py-1.5 rounded-lg bg-white/10">인하공업전문대학</span>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3">
+          <p class="text-xs text-blue-300">© 2026 CO-SHOW 첨단소재·나노융합 혁신융합대학사업단. All rights reserved.</p>
+          <button onclick="copyPageLink()" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-coshow-gold text-coshow-navy font-extrabold text-xs hover:bg-amber-300 transition">
+            <i class="fa-solid fa-link"></i>
+            <span>안내 링크 복사하여 공유하기</span>
+          </button>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- JavaScript for Interactive Tabs, Schedule Filtering, and Floor Plan Selection -->
+  <script>
+    // 1. Schedule Data (Exact match from image_6cd8b3.png & leaflet)
+    const scheduleData = [
+      {
+        dayId: '1118',
+        dateLabel: '11월 18일 (수) — 개막일',
+        items: [
+          { time: '08:30', title: '컨소시엄 관계자 입장', note: '비표 필요', isVip: false },
+          { time: '10:00', title: '일반관람객 입장 (본행사 시작)', note: '체험 프로그램 운영 개시', isVip: false },
+          { time: '14:00 ~ 16:00', title: '개막식 (VIP 투어 포함)', note: 'VIP 주요 참석', isVip: true },
+          { time: '16:00 ~ 17:00', title: '특별 강의 / TALK CONCERT (민태기 박사·교수)', note: '주요 세션', isVip: true },
+          { time: '17:00', title: '첨단소재나노융합-차세대디스플레이 혁신융합대학 사업단 업무협약', note: '주요 협약식', isVip: true },
+          { time: '~ 18:00', title: '경진대회·체험프로그램 등 부스 운영', note: '18:00 일반관람객 퇴장', isVip: false }
+        ]
+      },
+      {
+        dayId: '1119',
+        dateLabel: '11월 19일 (목) — 2일차',
+        items: [
+          { time: '10:00 ~ 18:00', title: '경진대회 전시 및 4대 체험프로그램 부스 상시 운영', note: '아트월·키캡랩·피규어랩', isVip: false }
+        ]
+      },
+      {
+        dayId: '1120',
+        dateLabel: '11월 20일 (금) — 경진대회 본선 및 시상식',
+        items: [
+          { time: '10:00 ~ 13:00', title: '경진대회 발표 평가 (PT + 현장 실물 심사)', note: '09:30 집결 / 심사위원 5명', isVip: true },
+          { time: '13:00 ~ 14:00', title: '심사 결과 취합', note: '운영사무국·심사위원회', isVip: true },
+          { time: '15:00 ~ 16:30', title: '2026 CO-SHOW 경진대회 시상식', note: '~17:00 종료 / 주요 참석', isVip: true },
+          { time: '16:30 ~ 18:00', title: '부스 운영 (상시 체험 프로그램 병행)', note: '18:00 관람 종료', isVip: false }
+        ]
+      },
+      {
+        dayId: '1121',
+        dateLabel: '11월 21일 (토) — 폐막일',
+        items: [
+          { time: '10:00 ~ 17:00', title: '경진대회·체험프로그램 등 부스 운영', note: '17시 운영 마감', isVip: false },
+          { time: '17:00 ~', title: '폐막 및 일반관람객 통제', note: '행사 폐막', isVip: false },
+          { time: '17:00 ~ 24:00', title: '부스 철거(당일 야간철거) 및 전시품 반출', note: '전체 행사 종료', isVip: false }
+        ]
+      }
+    ];
+
+    let currentDayFilter = 'all';
+
+    function setDayFilter(dayId) {
+      currentDayFilter = dayId;
+      document.querySelectorAll('.day-tab').forEach(btn => {
+        btn.classList.remove('bg-coshow-navy', 'text-white', 'shadow-sm');
+        btn.classList.add('text-slate-600');
+      });
+      const activeBtn = document.getElementById('tab-' + dayId);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-coshow-navy', 'text-white', 'shadow-sm');
+        activeBtn.classList.remove('text-slate-600');
+      }
+      renderSchedule();
+    }
+
+    function renderSchedule() {
+      const container = document.getElementById('schedule-list');
+      const vipOnly = document.getElementById('vipOnlyToggle').checked;
+      container.innerHTML = '';
+
+      const filteredDays = scheduleData.filter(d => currentDayFilter === 'all' || d.dayId === currentDayFilter);
+
+      filteredDays.forEach(day => {
+        const items = vipOnly ? day.items.filter(item => item.isVip) : day.items;
+        if (items.length === 0) return;
+
+        const dayCard = document.createElement('div');
+        dayCard.className = 'rounded-2xl border border-slate-200 overflow-hidden';
+
+        let rowsHtml = items.map(item => `
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 p-3.5 sm:px-5 border-b last:border-b-0 border-slate-100 ${item.isVip ? 'bg-amber-50/75' : 'bg-white'}">
+            <div class="flex items-start sm:items-center gap-3">
+              <span class="inline-block min-w-[105px] text-xs font-extrabold ${item.isVip ? 'text-amber-800 bg-coshow-gold/50 px-2 py-0.5 rounded-md' : 'text-coshow-blue'}">
+                ${item.time}
+              </span>
+              <span class="text-xs sm:text-sm font-bold text-slate-800">
+                ${item.isVip ? '<i class="fa-solid fa-star text-amber-500 mr-1"></i>' : ''}${item.title}
+              </span>
+            </div>
+            ${item.note ? `<span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full self-start sm:self-auto ${item.isVip ? 'bg-amber-200/70 text-amber-950' : 'bg-slate-100 text-slate-500'}">${item.note}</span>` : ''}
+          </div>
+        `).join('');
+
+        dayCard.innerHTML = `
+          <div class="bg-coshow-ice px-4 sm:px-5 py-2.5 border-b border-slate-200 flex items-center justify-between">
+            <span class="font-extrabold text-coshow-navy text-xs sm:text-sm">${day.dateLabel}</span>
+            <span class="text-[11px] font-semibold text-coshow-blue">${items.length}개 세션</span>
+          </div>
+          <div>${rowsHtml}</div>
+        `;
+        container.appendChild(dayCard);
+      });
+
+      if (container.innerHTML === '') {
+        container.innerHTML = `
+          <div class="text-center py-8 text-xs sm:text-sm text-slate-500 bg-slate-50 rounded-2xl">
+            해당 일자에는 별도의 주요 공식 행사가 없으며, <strong>10:00~18:00 상시 부스 운영</strong>이 진행됩니다.
+          </div>
+        `;
+      }
+    }
+
+    // 2. 15 Finalist Teams Data (Exact match from CO-SHOW 중앙대_리플렛_261112.pdf & 맵.jpg)
+    const teamsData = [
+      {
+        id: 1,
+        zone: '좌측 벽면 1번 부스',
+        name: 'ANSIM',
+        univ: '한남대학교',
+        members: '홍현택, 조현준',
+        theme: '스마트 방재·안전',
+        title: '적층제조 나노융합 기반 전기 모빌리티 화재 2차 확산 억제를 위한 격리 시스템',
+        desc: '지하주차장과 충전구역에서 초기 대응이 어려운 전기 모빌리티 배터리 화재의 2차 확산을 늦추는 자동 격리 시스템입니다. AI 카메라와 센서가 화재를 감지하면 전개 모듈이 천장 레일을 따라 이동해 억제 커버로 차량을 덮어 대피와 소방대 진입 시간을 확보합니다.'
+      },
+      {
+        id: 2,
+        zone: '좌측 벽면 2번 부스',
+        name: 'Vanguard',
+        univ: '한남대학교',
+        members: '주명로, 공우석, 유준서',
+        theme: '스마트 리빙·농업',
+        title: '고령친화 스마트 농업 드론',
+        desc: '농촌 고령화와 파종 인력 부족 문제를 해결하기 위한 고령친화 스마트농업 로봇 드론입니다. 비행으로 농경지 장애물을 극복하고 90° 틸팅으로 지상 주행 모드로 전환해 굴착·파종·복토를 수행하며, 원격 모니터링과 자율 운용으로 노동 부담을 경감합니다.'
+      },
+      {
+        id: 3,
+        zone: '좌측 벽면 3번 부스',
+        name: 'Rainmate',
+        univ: '부산대학교 · 명지대학교',
+        members: '서민재, 이상헌(부산대) · 김나연, 유서연(명지대)',
+        theme: '빗속 이동 안전',
+        title: '우천 시 핸즈프리 이동을 위한 적층제조 기반 유모차 핸들 결합형 우산 암 마운트',
+        desc: '비 오는 날 한 손에 우산을 들고 유모차를 밀 때 발생하는 전복 및 방향 이탈 위험을 방지하는 3D 프린팅 우산 암 마운트입니다. 두 손으로 안전하게 유모차를 주행할 수 있으며 톱니 구조로 우산 각도와 길이를 손쉽게 조절할 수 있습니다.'
+      },
+      {
+        id: 4,
+        zone: '좌측 벽면 4번 부스',
+        name: '스파크',
+        univ: '강원대학교 메카트로닉스공학전공',
+        members: '김주황, 이승우, 양심렬',
+        theme: '빗속 이동 안전',
+        title: 'AI 지형 스캐닝 우산 (빗속에서 이동하는 사용자의 안전을 위한 제품)',
+        desc: '3D 프린팅 우산 손잡이에 IMU 충격 센서와 ESP32를 탑재하여 미끄러짐·넘어짐·부딪힘을 진동으로 알리고, 격자 레이저와 발밑 조명으로 노면을 비추며 사고 지점 기록을 AI로 분석해 위험구간 지도를 구축합니다.'
+      },
+      {
+        id: 5,
+        zone: '좌측 벽면 5번 부스',
+        name: '뽀송뽀송',
+        univ: '숭실대학교 · 연세대학교 · 부산대학교',
+        members: '조영유, 김신들(숭실대) · 이시형, 김은채(연세대) · 허준우(부산대)',
+        theme: '빗속 이동 안전',
+        title: '지하철 이용환경에서의 사용자 경험을 고려한 우산 건조기 개발 (Rain Station)',
+        desc: '우천 시 지하철 역사 내 젖은 우산으로 인한 바닥 미끄럼과 승객 접촉 불편을 해소하기 위해 사용자 동선과 짧은 대기 시간을 고려한 상하 이동식 공기 분사 우산 건조기입니다.'
+      },
+      {
+        id: 6,
+        zone: '좌측 벽면 6번 부스',
+        name: 'RAIN:ON',
+        univ: '한남대학교',
+        members: '이병렬, 박해미, 임재훈, 이한서, 성기민',
+        theme: '빗속 이동 안전',
+        title: '빗속에서 이동하는 사용자의 안전을 위한 우산 꼭지 결합형 안전제품',
+        desc: '우천 시 흐린 시야와 낮은 시인성으로 인한 보행자 안전사고를 예방하기 위해 3D 프린팅 기술과 재귀반사 필름을 결합하여 외부 차량·보행자가 사용자를 쉽게 인지할 수 있도록 설계한 우산 꼭지 결합형 모듈입니다.'
+      },
+      {
+        id: 7,
+        zone: '좌측 벽면 7번 부스',
+        name: 'ownway',
+        univ: '명지대학교 · 한국기술교육대학교 · 인천대학교',
+        members: '명채은(명지대) · 이선우, 이민경(한기대) · 여환철(인천대)',
+        theme: '빗속 이동 안전',
+        title: '우천 시 시각장애인 보행 안전성 향상을 위한 지팡이 컨트롤러 연동형 빗소리 저감 이어폰',
+        desc: '빗소리로 인해 차량 경고음이나 사이렌 등 필수 환경음을 인지하기 어려운 시각장애인을 위해 RNNoise 기반 빗소리 저감 이어폰과 인체공학적 탈부착형 지팡이 컨트롤러를 결합한 보행 보조 시스템입니다.'
+      },
+      {
+        id: 8,
+        zone: '우측 벽면 8번 부스',
+        name: '커피박의 대반전',
+        univ: '강원대학교',
+        members: '김민지, 배성준, 엄지호',
+        theme: '커피 업사이클링',
+        title: '커피박을 융합한 리사이클링 생분해성 모종 포트',
+        desc: '버려지는 커피박과 친환경 소재를 배합해 극한 수축과 뿌리 몸살을 극복한 생분해성 모종 포트입니다. 밭에 그대로 심을 수 있어 농가의 노동 부담과 플라스틱 쓰레기를 줄이는 로컬 순환경제 모델입니다.'
+      },
+      {
+        id: 9,
+        zone: '우측 벽면 9번 부스',
+        name: '리마인두',
+        univ: '중앙대학교',
+        members: '이시형, 선민정, 류세영, 방기현',
+        theme: '커피 업사이클링',
+        title: '커피박 업사이클링 (탄화 활성화 탄소 전극 및 3D프린팅 소형 수전해 장치)',
+        desc: '폐커피박을 탄화 활성화해 다공성 탄소 전극을 만들고 3D프린팅 적층형 유로 셀에 조립해 소형 수전해 장치를 제작했습니다. 전해액 순환 및 물 전기분해를 통해 커피박 유래 촉매의 수전해 적용 가능성을 입증했습니다.'
+      },
+      {
+        id: 10,
+        zone: '우측 벽면 10번 부스',
+        name: 'Na-ture',
+        univ: '강원대학교',
+        members: '박승훈, 박성균, 엄예진',
+        theme: '커피 업사이클링',
+        title: '강원도 커피 폐기물의 배터리 음극재 소재화',
+        desc: '강원도 커피박을 재활용해 나트륨이온전지용 하드카본 음극재를 제조하고 커피오일을 표면 코팅 소재로 활용했습니다. 코인셀 충·방전 평가를 통해 가역용량 증가를 확인하며 지역 폐자원의 고부가가치화를 제시했습니다.'
+      },
+      {
+        id: 11,
+        zone: '우측 벽면 11번 부스',
+        name: '홀맨',
+        univ: '한국기술교육대학교 · 홍익대학교 · 숭실대학교',
+        members: '최강, 박도현(한기대) · 조민재(홍익대) · 박현민(숭실대)',
+        theme: '스마트 방재·안전',
+        title: '집중호우 시 맨홀 뚜껑 이탈과 추락 사고 예방을 위한 스마트 맨홀',
+        desc: '솔방울의 개폐 구조를 모티브로 수위·수압 변화에 따라 날개가 단계적으로 열려 내부 압력을 분산하고 역류를 제어하며, 센서와 앱 관제 시스템 연계를 통해 침수 위험을 실시간으로 알리는 스마트 맨홀입니다.'
+      },
+      {
+        id: 12,
+        zone: '우측 벽면 12번 부스',
+        name: '홀인원',
+        univ: '중앙대학교',
+        members: '신종화, 위정훈, 유원희, 임동근',
+        theme: '스마트 방재·안전',
+        title: '빗속에서 이동하는 사용자의 안전을 위한 스마트 맨홀 압력 배출 시스템',
+        desc: '집중호우 시 맨홀 내부 압력 상승으로 인한 뚜껑 이탈 및 보행자 추락 사고를 막기 위해, 수위 센서가 수위 상승을 감지하면 스텝모터가 회전 날개를 돌려 개구부를 열고 내부 압력을 배출하는 3D 프린팅 시제품입니다.'
+      },
+      {
+        id: 13,
+        zone: '우측 벽면 13번 부스',
+        name: 'ResQ4U',
+        univ: '중앙대 · 숭실대 · 경북대 · 명지대',
+        members: '조지운, 한영균(중앙대) · 김태호(숭실대) · 황지민(경북대) · 노현주(명지대)',
+        theme: '스마트 방재·안전',
+        title: '침수 대응형 무전원 부력 팽창 및 모터 추진 결합식 스마트 구명 모듈 설계',
+        desc: '도심 침수 시 정전 상황에서도 안정적으로 작동하는 스마트 구명환입니다. 수위 상승을 감지하는 무동력 기계식 자동 팽창 구조로 즉각 부력을 생성하고, 수중 추진 시스템으로 고립된 조난자에게 기동성을 제공합니다.'
+      },
+      {
+        id: 14,
+        zone: '우측 벽면 14번 부스',
+        name: 'seeme',
+        univ: '인천대학교 · 한국기술교육대학교 · 부산대학교',
+        members: '김성은(인천대) · 이하늘, 정운영(한기대) · 문광민(부산대)',
+        theme: '빗속 이동 안전',
+        title: '저시정 도로 환경을 위한 mmWave 레이더 기반 스마트 반사경 안전 모듈 개발',
+        desc: '비 오는 날 빗방울로 인해 시야 확보가 어려운 기존 도로 반사경에 장착하는 부착형 안전 모듈로, mmWave 레이더가 접근 차량·보행자를 감지하면 양면 LED가 점등되어 교차로 진입 전 감속과 주의를 유도합니다.'
+      },
+      {
+        id: 15,
+        zone: '우측 벽면 15번 부스',
+        name: '땅땅땅',
+        univ: '한국기술교육대학교 · 연세대학교',
+        members: '강남원, 박준우, 유지연(한기대) · 박준형, 이우질(연세대)',
+        theme: '빗속 이동 안전',
+        title: '점자블록의 미끄럼 방지를 위한 형상 기반 설계',
+        desc: '우천 시 미끄럼 방지와 사용성 개선을 위해 유선형 돌기를 적용한 실내·외 점자블록 4종입니다. 실내용은 PETG-CF로 적층 제조했고, 실외용은 24개 이상의 배수 홈을 둔 적층 제조 몰드에 시멘트를 부어 제작했습니다.'
+      }
+    ];
+
+    let selectedTeamId = 9; // Default highlight (e.g. 리마인두 or 1번 ANSIM)
+
+    function selectTeam(id) {
+      selectedTeamId = id;
+      const team = teamsData.find(t => t.id === id);
+      if (!team) return;
+
+      // Update SVG active state
+      document.querySelectorAll('.booth-node').forEach(node => {
+        if (Number(node.dataset.id) === id) {
+          node.classList.add('active');
+        } else {
+          node.classList.remove('active');
+        }
+      });
+
+      // Render Detail Card
+      const detailCard = document.getElementById('team-detail-card');
+      detailCard.innerHTML = `
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-coshow-gold text-coshow-navy font-extrabold text-sm">
+              ${team.id}
+            </span>
+            <span class="text-lg sm:text-xl font-extrabold text-white">${team.name}</span>
+            <span class="px-2.5 py-0.5 rounded-full bg-white/15 text-coshow-sky text-xs font-bold">${team.theme}</span>
+          </div>
+          <span class="text-xs font-semibold text-blue-200"><i class="fa-solid fa-map-pin mr-1 text-coshow-gold"></i>${team.zone}</span>
+        </div>
+        <h3 class="text-sm sm:text-base font-bold text-coshow-gold mb-2 leading-snug">${team.title}</h3>
+        <p class="text-xs sm:text-sm text-blue-50 leading-relaxed mb-3">${team.desc}</p>
+        <div class="pt-2.5 border-t border-white/15 flex flex-wrap items-center justify-between gap-2 text-xs text-blue-200">
+          <span><strong class="text-white">소속:</strong> ${team.univ}</span>
+          <span><strong class="text-white">참여학생:</strong> ${team.members}</span>
+        </div>
+      `;
+
+      // Highlight card in grid
+      renderTeamList();
+    }
+
+    function renderTeamList() {
+      const grid = document.getElementById('team-grid');
+      const query = document.getElementById('team-search').value.trim().toLowerCase();
+      const theme = document.getElementById('theme-filter').value;
+
+      const filtered = teamsData.filter(t => {
+        const matchesTheme = theme === 'all' || t.theme === theme;
+        const matchesQuery =
+          !query ||
+          t.name.toLowerCase().includes(query) ||
+          t.univ.toLowerCase().includes(query) ||
+          t.title.toLowerCase().includes(query) ||
+          t.members.toLowerCase().includes(query) ||
+          String(t.id) === query;
+        return matchesTheme && matchesQuery;
+      });
+
+      grid.innerHTML = filtered
+        .map(
+          t => `
+        <button onclick="selectTeam(${t.id}); document.getElementById('team-detail-card').scrollIntoView({behavior:'smooth', block:'nearest'});"
+          class="text-left p-3 rounded-xl border transition flex items-start gap-3 ${
+            t.id === selectedTeamId
+              ? 'bg-coshow-ice border-coshow-blue ring-1 ring-coshow-blue'
+              : 'bg-white border-slate-200 hover:border-coshow-sky'
+          }">
+          <span class="w-6 h-6 rounded-full shrink-0 flex items-center justify-center text-xs font-extrabold mt-0.5 ${
+            t.id === selectedTeamId ? 'bg-coshow-navy text-coshow-gold' : 'bg-red-600 text-white'
+          }">
+            ${t.id}
+          </span>
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center justify-between gap-1">
+              <span class="font-extrabold text-xs sm:text-sm text-coshow-navy truncate">${t.name}</span>
+              <span class="text-[10px] font-semibold text-slate-400 shrink-0">${t.univ.split('·')[0].trim()}</span>
+            </div>
+            <p class="text-xs text-slate-600 truncate mt-0.5">${t.title}</p>
+          </div>
+        </button>
+      `
+        )
+        .join('');
+    }
+
+    // 3. Copy Page URL helper (using execCommand fallback for iframe compatibility)
+    function copyPageLink() {
+      const url = window.location.href;
+      const tempInput = document.createElement('input');
+      tempInput.value = url;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        showToast('안내 페이지 링크가 클립보드에 복사되었습니다.');
+      } catch (err) {
+        showToast('브라우저 주소창의 URL을 복사해 공유해 주세요.');
+      }
+      document.body.removeChild(tempInput);
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const msgEl = document.getElementById('toast-msg');
+      msgEl.textContent = message;
+      toast.classList.remove('hidden');
+      toast.classList.add('flex');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+        toast.classList.remove('flex');
+      }, 2800);
+    }
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderSchedule();
+      selectTeam(1);
+    });
+  </script>
+</body>
+</html>

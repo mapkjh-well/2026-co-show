@@ -219,7 +219,7 @@
         <label class="inline-flex items-center gap-2.5 cursor-pointer bg-amber-50 border border-amber-200 px-3.5 py-2 rounded-2xl self-start sm:self-auto">
           <input type="checkbox" id="vipOnlyToggle" class="w-4 h-4 accent-amber-500 rounded cursor-pointer" onchange="renderSchedule()" />
           <span class="text-xs font-bold text-amber-900">
-            <i class="fa-solid fa-star text-amber-500 mr-1"></i>주요 공식 일정만 보기
+            <i class="fa-solid fa-star text-amber-500 mr-1"></i>공식 일정만 보기
           </span>
         </label>
       </div>
@@ -572,9 +572,9 @@
         items: [
           { time: '08:30', title: '컨소시엄 관계자 입장', note: '', isVip: false },
           { time: '10:00', title: '일반관람객 입장 (본행사 시작)', note: '체험 프로그램 운영 개시', isVip: false },
-          { time: '14:00 ~ 16:00', title: '개막식 (VIP 투어 포함)', note: 'VIP 주요 참석', isVip: true },
-          { time: '16:00 ~ 17:00', title: '특별 강의 / TALK CONCERT (민태기 박사)', note: '주요 세션', isVip: true },
-          { time: '17:00', title: '첨단소재나노융합-차세대디스플레이 혁신융합대학 사업단 업무협약', note: '주요 협약식', isVip: true },
+          { time: '14:00 ~ 16:00', title: '개막식 (VIP 투어 포함)', note: 'VIP 참석', isVip: true },
+          { time: '16:00 ~ 17:00', title: '특별 강의 / TALK CONCERT (민태기 박사)', note: '세션', isVip: true },
+          { time: '17:00', title: '첨단소재나노융합-차세대디스플레이 혁신융합대학 사업단 업무협약', note: '협약식', isVip: true },
           { time: '~ 18:00', title: '경진대회·체험프로그램 등 부스 운영', note: '', isVip: false }
         ]
       },
@@ -589,9 +589,9 @@
         dayId: '1120',
         dateLabel: '11월 20일 (금) — 경진대회 본선 및 시상식',
         items: [
-          { time: '10:00 ~ 13:00', title: '경진대회 발표 평가 (PT + 현장 실물 심사)', note: '09:30 집결', isVip: true },
+          { time: '10:00 ~ 13:00', title: '경진대회 발표 평가(현장 실물 심사)', note: '09:30 집결', isVip: true },
           { time: '13:00 ~ 14:00', title: '심사 결과 취합', note: '', isVip: true },
-          { time: '15:00 ~ 16:30', title: '2026 CO-SHOW 경진대회 시상식', note: '~17:00 종료 / 주요 참석', isVip: true },
+          { time: '15:00 ~ 16:30', title: '2026 CO-SHOW 경진대회 시상식', note: '~17:00 종료 / 참석', isVip: true },
           { time: '16:30 ~ 18:00', title: '부스 운영 (상시 체험 프로그램 병행)', note: '', isVip: false }
         ]
       },
@@ -600,7 +600,7 @@
         dateLabel: '11월 21일 (토) — 폐막일',
         items: [
           { time: '10:00 ~ 17:00', title: '경진대회·체험프로그램 등 부스 운영', note: '', isVip: false },
-          { time: '17:00 ~', title: '폐막 및 일반관람객 통제', note: '행사 폐막', isVip: false }
+          { time: '17:00 ~', title: '폐막', note: '행사 폐막', isVip: false }
         ]
       }
     ];
@@ -710,7 +710,7 @@
         zone: '좌측 벽면 3번 부스',
         name: 'Rainmate',
         univ: '부산대학교 · 명지대학교',
-        members: '서민재, 이상헌(부산대) · 김나연, 유서연(명지대)',
+        members: '서민재, 이상현(부산대) · 김나연, 유서연(명지대)',
         theme: '빗속 이동 안전',
         title: '우천 시 핸즈프리 이동을 위한 적층제조 기반 유모차 핸들 결합형 우산 암 마운트',
         desc: '비 오는 날 한 손에 우산을 들고 유모차를 밀 때 발생하는 전복 및 방향 이탈 위험을 방지하는 3D 프린팅 우산 암 마운트입니다. 두 손으로 안전하게 유모차를 주행할 수 있으며 톱니 구조로 우산 각도와 길이를 손쉽게 조절할 수 있습니다.'
@@ -720,7 +720,7 @@
         zone: '좌측 벽면 4번 부스',
         name: '스파크',
         univ: '강원대학교',
-        members: '김주황, 이승우, 양심렬',
+        members: '김주황, 이승우, 양삼렬',
         theme: '빗속 이동 안전',
         title: 'AI 지형 스캐닝 우산 (빗속에서 이동하는 사용자의 안전을 위한 제품)',
         desc: '3D 프린팅 우산 손잡이에 IMU 충격 센서와 ESP32를 탑재하여 미끄러짐·넘어짐·부딪힘을 진동으로 알리고, 격자 레이저와 발밑 조명으로 노면을 비추며 사고 지점 기록을 AI로 분석해 위험구간 지도를 구축합니다.'
@@ -730,7 +730,7 @@
         zone: '좌측 벽면 5번 부스',
         name: '뽀송뽀송',
         univ: '숭실대학교 · 연세대학교 · 부산대학교',
-        members: '조영유, 김신들(숭실대) · 이시형, 김은채(연세대) · 허준우(부산대)',
+        members: '조영유, 김산들(숭실대) · 이시형, 김은채(연세대) · 허준우(부산대)',
         theme: '빗속 이동 안전',
         title: '지하철 이용환경에서의 사용자 경험을 고려한 우산 건조기 개발 (Rain Station)',
         desc: '우천 시 지하철 역사 내 젖은 우산으로 인한 바닥 미끄럼과 승객 접촉 불편을 해소하기 위해 사용자 동선과 짧은 대기 시간을 고려한 상하 이동식 공기 분사 우산 건조기입니다.'
@@ -740,7 +740,7 @@
         zone: '좌측 벽면 6번 부스',
         name: 'RAIN:ON',
         univ: '한남대학교',
-        members: '이병렬, 박해미, 임재훈, 이한서, 성기민',
+        members: '이병렬, 박해미, 임채훈, 이한서, 성기민',
         theme: '빗속 이동 안전',
         title: '빗속에서 이동하는 사용자의 안전을 위한 우산 꼭지 결합형 안전제품',
         desc: '우천 시 흐린 시야와 낮은 시인성으로 인한 보행자 안전사고를 예방하기 위해 3D 프린팅 기술과 재귀반사 필름을 결합하여 외부 차량·보행자가 사용자를 쉽게 인지할 수 있도록 설계한 우산 꼭지 결합형 모듈입니다.'
@@ -800,7 +800,7 @@
         zone: '우측 벽면 12번 부스',
         name: '홀인원',
         univ: '중앙대학교',
-        members: '신종화, 위정훈, 유원희, 임동근',
+        members: '신종화, 위정훈, 유원희, 임동균',
         theme: '스마트 방재·안전',
         title: '빗속에서 이동하는 사용자의 안전을 위한 스마트 맨홀 압력 배출 시스템',
         desc: '집중호우 시 맨홀 내부 압력 상승으로 인한 뚜껑 이탈 및 보행자 추락 사고를 막기 위해, 수위 센서가 수위 상승을 감지하면 스텝모터가 회전 날개를 돌려 개구부를 열고 내부 압력을 배출하는 3D 프린팅 시제품입니다.'
@@ -830,7 +830,7 @@
         zone: '우측 벽면 15번 부스',
         name: '땅땅땅',
         univ: '한국기술교육대학교 · 연세대학교',
-        members: '강남원, 박준우, 유지연(한기대) · 박준형, 이우질(연세대)',
+        members: '강남원, 박준우, 유지연(한기대) · 박준형, 이우철(연세대)',
         theme: '빗속 이동 안전',
         title: '점자블록의 미끄럼 방지를 위한 형상 기반 설계',
         desc: '우천 시 미끄럼 방지와 사용성 개선을 위해 유선형 돌기를 적용한 실내·외 점자블록 4종입니다. 실내용은 PETG-CF로 적층 제조했고, 실외용은 24개 이상의 배수 홈을 둔 적층 제조 몰드에 시멘트를 부어 제작했습니다.'
